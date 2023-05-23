@@ -1,0 +1,68 @@
+site_name: Mkdocs Bug Test
+
+plugins:
+  - search
+  - autorefs
+  - include-markdown
+  - mkdocstrings:
+      custom_templates: docs/templates
+      handlers:
+        python:
+          options:
+            members_order: alphabetical
+            docstring_style: google
+            show_signature_annotations: true
+            separate_signature: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - footnotes
+  - pymdownx.tabbed:
+      alternate_style: true
+
+watch:
+  - modules
+
+theme:
+  name: material
+
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+  font:
+    text: Noto Sans
+    code: Noto Sans Mono
+
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - content.tabs.link
+
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - "index.md"
+  - "Modules":
+    - "reference/main.md"
+    - "reference/secondary.md"
